@@ -35,6 +35,7 @@
       "runtime" : {
          "requires" : {
             "Carp" : "0",
+            "DBD::SQLite" : "0",
             "DBI" : "0",
             "SQL::Abstract::Complete" : "0",
             "SQL::Parser" : "0",
@@ -69,6 +70,6 @@
          "web" : "https://github.com/gryphonshafer/DBIx-Query"
       }
    },
-   "version" : "1.05"
+   "version" : "1.06"
 }
 

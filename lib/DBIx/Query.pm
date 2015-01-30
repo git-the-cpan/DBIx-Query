@@ -4,7 +4,7 @@ package DBIx::Query;
 use strict;
 use warnings;
 
-our $VERSION = '1.05'; # VERSION
+our $VERSION = '1.06'; # VERSION
 
 use parent 'DBI';
 *errstr = \*DBI::errstr;
@@ -561,7 +561,7 @@ DBIx::Query - Simplified abstracted chained DBI subclass
 
 =head1 VERSION
 
-version 1.05
+version 1.06
 
 =for markdown [![Build Status](https://travis-ci.org/gryphonshafer/DBIx-Query.svg)](https://travis-ci.org/gryphonshafer/DBIx-Query)
 [![Coverage Status](https://coveralls.io/repos/gryphonshafer/DBIx-Query/badge.png)](https://coveralls.io/r/gryphonshafer/DBIx-Query)

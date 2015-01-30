@@ -22,6 +22,7 @@ meta-spec:
 name: DBIx-Query
 requires:
   Carp: '0'
+  DBD::SQLite: '0'
   DBI: '0'
   SQL::Abstract::Complete: '0'
   SQL::Parser: '0'
@@ -34,4 +35,4 @@ resources:
   bugtracker: https://github.com/gryphonshafer/DBIx-Query/issues
   homepage: https://github.com/gryphonshafer/DBIx-Query
   repository: https://github.com/gryphonshafer/DBIx-Query.git
-version: '1.05'
+version: '1.06'

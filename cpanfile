@@ -1,4 +1,5 @@
 requires "Carp" => "0";
+requires "DBD::SQLite" => "0";
 requires "DBI" => "0";
 requires "SQL::Abstract::Complete" => "0";
 requires "SQL::Parser" => "0";
