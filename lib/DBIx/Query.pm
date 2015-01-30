@@ -1,11 +1,13 @@
 package DBIx::Query;
+# ABSTRACT: Simplified abstracted chained DBI subclass
+
 use strict;
 use warnings;
+
+our $VERSION = '1.05'; # VERSION
+
 use parent 'DBI';
-
 *errstr = \*DBI::errstr;
-
-our $VERSION = '1.04';
 our $_dq_parser_cache = {};
 
 #-----------------------------------------------------------------------------
@@ -547,11 +549,24 @@ our $_dq_parser_cache = {};
 
 1;
 
+__END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
 DBIx::Query - Simplified abstracted chained DBI subclass
+
+=head1 VERSION
+
+version 1.05
+
+=for markdown [![Build Status](https://travis-ci.org/gryphonshafer/DBIx-Query.svg)](https://travis-ci.org/gryphonshafer/DBIx-Query)
+[![Coverage Status](https://coveralls.io/repos/gryphonshafer/DBIx-Query/badge.png)](https://coveralls.io/r/gryphonshafer/DBIx-Query)
+
+=for test_synopsis my( $db_name, $db_host, $user, $pwd );
 
 =head1 SYNOPSIS
 
@@ -561,13 +576,13 @@ DBIx::Query - Simplified abstracted chained DBI subclass
 
     # get stuff, things, and everything easily
     my $everything = $dq->get('things')->run()->all({});
-    my $things     = $dq->get( 'things', ['stuff'], { 'value' = 42 } )->run()->all();
+    my $things     = $dq->get( 'things', ['stuff'], { 'value' => 42 } )->run()->all();
     my $stuff      = $dq->sql('SELECT stuff FROM things WHERE value = ?')->run(42)->all();
 
     # can use DBI methods at any point
     my $sth = $dq->get('things');
     $sth->execute();
-    my $stuff = $sth->fetchall_arrayref();
+    $stuff = $sth->fetchall_arrayref();
 
     # get all from data where a is 42 (as an arrayref of hashrefs)
     my $data = $dq->get('data')->where( 'a' => 42 )->run()->all({});
@@ -1049,15 +1064,45 @@ When called against a cell object, returns the row object to which it belongs.
 
 L<SQL::Abstract::Complete>, L<DBI>.
 
+You can also look for additional information at:
+
+=over 4
+
+=item *
+
+L<GitHub|https://github.com/gryphonshafer/DBIx-Query>
+
+=item *
+
+L<CPAN|http://search.cpan.org/dist/DBIx-Query>
+
+=item *
+
+L<MetaCPAN|https://metacpan.org/pod/DBIx::Query>
+
+=item *
+
+L<AnnoCPAN|http://annocpan.org/dist/DBIx-Query>
+
+=item *
+
+L<Travis CI|https://travis-ci.org/gryphonshafer/DBIx-Query>
+
+=item *
+
+L<Coveralls|https://coveralls.io/r/gryphonshafer/DBIx-Query>
+
+=back
+
 =head1 AUTHOR
 
-Gryphon Shafer E<lt>gryphon@cpan.orgE<gt>.
+Gryphon Shafer <gryphon@cpan.org>
 
-    code('Perl') || die;
+=head1 COPYRIGHT AND LICENSE
 
-=head1 LICENSE
+This software is copyright (c) 2015 by Gryphon Shafer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
